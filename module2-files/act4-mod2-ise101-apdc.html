@@ -1,0 +1,69 @@
+//ACTIVITY 2.4  LOOPS AND MUTLI-DIMENSIONAL ARRAY
+
+<!DOCTYPE html>
+<html>
+<head>
+ <title>LOOPS AND MULTI-DIMENSIONAL ARRAY</title>
+
+ <script type='text/javascript' src='scripts/simple.js'></script>
+ <!-- Include meta tag to ensure proper rendering and touch zooming -->
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <!-- Include jQuery Mobile stylesheets -->
+ <link rel="stylesheet" href="../jquery/jquery.mobile-1.4.5.min.css">
+ <!-- Include the jQuery library -->
+ <script src="../jquery/jquery-1.11.3.js"></script>
+ <!-- Include the jQuery Mobile library -->
+ <script src="../jquery/jquery.mobile-1.4.5.min.js">
+ </script>
+
+</head>
+<body>
+
+    <div data-role="page">
+        <div data-role="header" align="center">
+        ACTIVITY 4 - MODULE 2
+        </div>
+        <div data-role="content">
+        <p><b>GRADE SLIPS</b></p>
+        <p id="grade"></p>
+        <p>Programmed by: <em id="progBy"></em></p>
+        </div>
+        <div data-role="footer" align="center">
+        <small>Copyright &copy 2021</small>
+        </div>
+        </div>
+
+    <script>
+        const arrStudGrade_apdc=[
+        {LName:"Di Magkamali", FName:"Perfecto",Level:"First Year",Course:"BS Computer Science",Pre:"85",Mid:"90",Fin:"95"},
+        {LName:"Di Matulac", FName:"Hebili",Level:"Second Year",Course:"BS Information Technology",Pre:"86",Mid:"87",Fin:"88"},
+        {LName:"Di Magiba", FName:"Matthias",Level:"Third Year",Course:"BS Information Science",Pre:"90",Mid:"92",Fin:"93"},
+        {LName:"Di Mapakali", FName:"Alberuto",Level:"Fourth Year",Course:"BS Computer Science",Pre:"80",Mid:"83",Fin:"86"},
+        {LName:"Di Mahanap", FName:"Hassan",Level:"Fourth Year",Course:"BS Information Technology",Pre:"70",Mid:"72",Fin:"74"}
+        ];
+
+        var strProgBy_apdc = "Anne Paulyn B. Dela Cruz";
+
+        //Store multi-dimensional array elements using for loop
+        strGrade_apdc="";
+        for (ctrOut = 0; ctrOut < arrStudGrade_apdc.length; ctrOut++) {
+        strGrade_apdc += "Student Name: " + arrStudGrade_apdc[ctrOut].LName + ", " +
+        arrStudGrade_apdc[ctrOut].FName + "<br>";
+        strGrade_apdc += "Student Level: " + arrStudGrade_apdc[ctrOut].Level + "<br>";
+        strGrade_apdc += "Student Course: " + arrStudGrade_apdc[ctrOut].Course + "<br>";
+        strGrade_apdc += "Prelim Grade: " + arrStudGrade_apdc[ctrOut].Pre + "<br>";
+        strGrade_apdc += "Midterm Grade: " + arrStudGrade_apdc[ctrOut].Mid + "<br>";
+        strGrade_apdc += "Final Grade: " + arrStudGrade_apdc[ctrOut].Fin + "<br>";
+        strGrade_apdc += "Subject Grade: " + (parseFloat(arrStudGrade_apdc[ctrOut].Pre) +
+        parseFloat(arrStudGrade_apdc[ctrOut].Mid) +
+        parseFloat(arrStudGrade_apdc[ctrOut].Fin))/3 + "<br><br>";
+        }
+
+        document.getElementById("grade").innerHTML = strGrade_apdc;
+        document.getElementById("progBy").innerHTML = strProgBy_apdc;
+        </script>
+       
+       
+</body>
+</html>
+

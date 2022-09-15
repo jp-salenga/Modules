@@ -1,0 +1,88 @@
+//MACHINE PROBLEM 2.3 : RESTAURANT: MULTI-DIMENSIONAL ARRAY
+
+<!DOCTYPE html>
+<html>
+<head>
+ <title>LOOPS AND MULTI-DIMENSIONAL ARRAY</title>
+
+ <script type='text/javascript' src='scripts/simple.js'></script>
+ <!-- Include meta tag to ensure proper rendering and touch zooming -->
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <!-- Include jQuery Mobile stylesheets -->
+ <link rel="stylesheet" href="../jquery/jquery.mobile-1.4.5.min.css">
+ <!-- Include the jQuery library -->
+ <script src="../jquery/jquery-1.11.3.js"></script>
+ <!-- Include the jQuery Mobile library -->
+ <script src="../jquery/jquery.mobile-1.4.5.min.js">
+ </script>
+
+</head>
+<body>
+
+    <div data-role="page">
+        <div data-role="header" align="center">
+        MACHINE PROBLEM 3 - MODULE 2
+        </div>
+        <div data-role="content">
+        <p><b>RESTAURANT: MULTI-DIMENSIONAL ARRAY</b></p>
+        <p id="rec"></p>
+        <br>
+        <p>Programmed by: <em id="progBy"></em></p>
+        </div>
+        <div data-role="footer" align="center">
+        <small>Copyright &copy 2021</small>
+        </div>
+        </div>
+
+        <script>
+           
+        const arrMultiDimensional_apdc = [
+            {cusNum:"001", lastName: "Di Magkamali", firstName: "Perfecto", cType:"Regular", totalAmount:500 , taxRate:0.10 , serviceCharge:0.03 , discount:0.08 , totalCharges:65}, 
+            {cusNum:"002", lastName: "Di Matulak", firstName:"Hassan" , cType:"Walk-In" , totalAmount:600 , taxRate:0.12 , serviceCharge:0.05 , discount:0.07 , totalCharges:102},
+            {cusNum:"003", lastName:"Di Magilap", firstName:"Dabiana" , cType:"Standard", totalAmount:700 , taxRate:0.11 , serviceCharge:0.04 , discount:0.06 , totalCharges:105},
+            {cusNum:"004", lastName:"Di Mapacali", firstName:"Alberuto", cType:"Delivery" , totalAmount:850 , taxRate:0.09 , serviceCharge:0.01 , discount: 0.05, totalCharges:85 },
+            {cusNum:"005", lastName:"Di Mapasaya", firstName:"Sadner", cType:"Walk-In" , totalAmount:1000 , taxRate:0.12 , serviceCharge: 0.05, discount:0.06 , totalCharges:170}
+           ];
+
+           var strProgBy_apdc = "Anne Paulyn B. Dela Cruz";
+
+            /*Display using For loop*/
+        customerInfo_apdc = "";
+        for (ctrOut = 0 ; ctrOut < arrMultiDimensional_apdc.length; ctrOut++){
+                customerInfo_apdc +="Customer Number: "+ arrMultiDimensional_apdc[ctrOut].cusNum + "<br>";
+                customerInfo_apdc+="Customer Name: "+ (arrMultiDimensional_apdc[ctrOut].firstName + " "+ arrMultiDimensional_apdc[ctrOut].lastName)+ "<br>";
+                 customerInfo_apdc +="Customer Type: "+arrMultiDimensional_apdc[ctrOut].cType+ "<br>";
+                 customerInfo_apdc +="Total Amount: "+arrMultiDimensional_apdc[ctrOut].totalAmount.toFixed(2) + "<br>";
+
+
+               /* Computer for the Net Pay using the formula and using the array index number:
+                i. Tax Charges = Total Amount * .10
+                ii. Service Charges = Total Amount * .03
+                iii. Total Charges = Tax Charges + Service Charges
+                iv. Total Discount = Total Amount * .08
+                v. Amount to Pay = (Total Amount + Total Charges) – Total Discount*/
+                var compTaxCh_apdc = arrMultiDimensional_apdc[ctrOut].totalAmount* arrMultiDimensional_apdc[ctrOut].taxRate;
+                customerInfo_apdc+="Tax Charges: "+compTaxCh_apdc.toFixed(2) + "<br>";
+
+                var compServCh_apdc = arrMultiDimensional_apdc[ctrOut].totalAmount* arrMultiDimensional_apdc[ctrOut].serviceCharge;
+                 customerInfo_apdc+="Service Charges: "+ compServCh_apdc.toFixed(2) + "<br>";
+
+                var compTotalCh_apdc = compTaxCh_apdc + compServCh_apdc;
+                 customerInfo_apdc+="Total Charges: "+    compTotalCh_apdc.toFixed(2)   + "<br>";
+                var compTotalDsc_apdc = arrMultiDimensional_apdc[ctrOut].totalAmount* arrMultiDimensional_apdc[ctrOut].discount;
+                 customerInfo_apdc+="Total Discount: "+    compTotalDsc_apdc.toFixed(2)   + "<br>";
+                var compAmountToPay_apdc = (arrMultiDimensional_apdc[ctrOut].totalAmount + compTotalCh_apdc) - compTotalDsc_apdc;
+                 customerInfo_apdc+="Amount to Pay: "+   compAmountToPay_apdc.toFixed(2)    + "<br>";
+
+
+
+
+
+            customerInfo_apdc+= "<br>";
+        }
+            document.getElementById("rec").innerHTML = customerInfo_apdc;
+            document.getElementById("progBy").innerHTML = strProgBy_apdc;
+
+        </script>
+</body>
+</html>

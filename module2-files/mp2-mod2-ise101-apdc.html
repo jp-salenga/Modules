@@ -1,0 +1,102 @@
+//MACHINE PROBLEM 2.2 – HOTEL: LOOPS AND SINGLE ARRAY
+
+<!DOCTYPE html>
+<html>
+<head>
+ <title>LOOPS AND Single-DIMENSIONAL ARRAY</title>
+
+ <script type='text/javascript' src='scripts/simple.js'></script>
+ <!-- Include meta tag to ensure proper rendering and touch zooming -->
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <!-- Include jQuery Mobile stylesheets -->
+ <link rel="stylesheet" href="../jquery/jquery.mobile-1.4.5.min.css">
+ <!-- Include the jQuery library -->
+ <script src="../jquery/jquery-1.11.3.js"></script>
+ <!-- Include the jQuery Mobile library -->
+ <script src="../jquery/jquery.mobile-1.4.5.min.js">
+ </script>
+
+</head>
+<body>
+
+    <div data-role="page">
+        <div data-role="header" align="center">
+        MACHINE PROBLEM 2 - MODULE 2
+        </div>
+        <div data-role="content">
+        <p><b>HOTEL LOOPS AND SINGLE ARRAY</b></p>
+        <p id="hotel"></p>
+
+        <p><b>Room Types</b></p>
+        <p id="room"></p>
+
+
+        <br>
+        <p><b>Customer Receipts</b></p>
+        <p id="receipts"></p>
+
+        <br>
+        <p>Programmed by: <em id="progBy"></em></p>
+        </div>
+        <div data-role="footer" align="center">
+        <small>Copyright &copy 2021</small>
+        </div>
+        </div>
+
+        <script>
+            /* Single Dimensional Arrays*/
+
+            const arrCustomerNumber_apdc = ["001", "002", "003", "004", "005"];
+            const arrLName_apdc = ["Di Magkamali","Di Magilap", "Di Matulac", "Dela Cruz", "Penduko"];
+            const arrFName_apdc = ["Perfecto", "Hassan", "Dabiana", "Juan", "Pedro"];
+            const arrRatePerDay_apdc = [1250, 1300, 1350, 1400, 1450];
+            const arrRatePerHour_apdc = [125, 150, 175, 200, 250];
+            const arrNumOfDays_apdc = [5, 7, 9, 11, 15];
+            const arrExtendedHours_apdc = [2, 4, 6, 8, 10];
+            const arrExtraAmenities_apdc = [500, 550, 600, 650, 700];
+            var strProgBy_apdc = "Anne Paulyn B. Dela Cruz";
+
+            /*Object Array*/
+
+            const objRoomType_apdc={RR:"Regular Room",SR:"Suite Room",ER:"Executive Room",PR:"Presidential Room"};
+
+           
+
+
+            /* Store list of room types*/
+            let lenRoomType_apdc = objRoomType_apdc.length;
+            /*Display Room Types*/
+            let strRoomType_apdc = "<ul>";
+                for (let lenRoomType_apdc in objRoomType_apdc){
+                    strRoomType_apdc+="<li>" + objRoomType_apdc[lenRoomType_apdc]+"</li>";
+                }
+                strRoomType_apdc+= "</ul>";
+                document.getElementById("room").innerHTML=strRoomType_apdc;
+            
+            //Customer Receipts uing For loop
+
+            strCustomerReceipt_apdc= "";
+            for(let ctr = 0; ctr < arrCustomerNumber_apdc.length ; ctr++){
+                strCustomerReceipt_apdc+="Customer Number: " + arrCustomerNumber_apdc[ctr]+"<br>";
+                strCustomerReceipt_apdc+="Customer Name: "+ arrFName_apdc[ctr] + " " + arrLName_apdc[ctr]+ "<br>";
+                strCustomerReceipt_apdc+="Room Type: "
+
+                strCustomerReceipt_apdc+="Rate per Day: "+ arrRatePerDay_apdc[ctr]+"<br>";
+                strCustomerReceipt_apdc+="Rate per Hour:"+arrRatePerHour_apdc[ctr]+"<br>";
+                strCustomerReceipt_apdc+="Number of Days: "+arrNumOfDays_apdc[ctr]+"<br>";
+                strCustomerReceipt_apdc+="Extended Hours: " +arrExtendedHours_apdc[ctr]+"<br>";
+                strCustomerReceipt_apdc+="Extra Amenities: "+arrExtraAmenities_apdc[ctr]+"<br>";
+
+                 /*Computation for Total Amount = (Rate Per Day * No. of Days) + (Rate Per Hour * Extended Hours) +
+            Extra Ameneties*/
+                var totalAmount_apdc = (arrRatePerDay_apdc[ctr] * arrNumOfDays_apdc[ctr]) + (arrRatePerHour_apdc[ctr]* arrExtendedHours_apdc[ctr]) - arrExtraAmenities_apdc[ctr];
+                strCustomerReceipt_apdc+="Total Amount: "+totalAmount_apdc+"<br>";
+                
+                strCustomerReceipt_apdc+= "<br>";
+            }
+            document.getElementById("receipts").innerHTML=strCustomerReceipt_apdc;
+            document.getElementById("progBy").innerHTML = strProgBy_apdc;
+
+        </script>
+</body>
+</html>

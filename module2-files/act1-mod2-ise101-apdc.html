@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>MY PERSONAL INFORMATION</title>
+
+ <script type='text/javascript' src='scripts/simple.js'></script>
+ <!-- Include meta tag to ensure proper rendering and touch zooming -->
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <!-- Include jQuery Mobile stylesheets -->
+ <link rel="stylesheet" href="../jquery/jquery.mobile-1.4.5.min.css">
+ <!-- Include the jQuery library -->
+ <script src="../jquery/jquery-1.11.3.js"></script>
+ <!-- Include the jQuery Mobile library -->
+ <script src="../jquery/jquery.mobile-1.4.5.min.js">
+ </script>
+
+</head>
+<body>
+
+    <div data-role="page">
+        <div data-role="header">
+        ACTIVITY 1 - MODULE 2
+        </div>
+        <div data-role="content">
+        <p><b>PERSONAL INFORMATION</b></p>
+        <p>Name: <em id="fName"></em></p>
+        <p>Birthday: <em id="bDate"></em></p>
+        <p>Address: <em id="add"></em></p>
+        <br>
+        <p><b>EDUCATIONAL BACKGROUND</b></p>
+        <p>Primary: <em id="pri"></em></p>
+        <p>Secondary: <em id="sec"></em></p>
+        <p>Tertiary: <em id="ter"></em></p>
+        <p>Course: <em id="cors"></em></p>
+        <br>
+        <p>Programmed by: <em id="progBy"></em></p>
+        </div>
+       
+        <div data-role="footer">
+        <small>Copyright &copy 2021</small>
+        </div>
+        </div>
+
+        <script>
+            //Declare and initialize variables
+            strName_apdc = "Anne Paulyn B. Dela Cruz";
+            strBDate_apdc = "January 26, 1996";
+            strAdd_apdc = "Santa Rita, Pampanga";
+            strPrimary_apdc = "Santa Rita Catholic School";
+            strSecondary_apdc = "St. Scholastica's Academy, CSFP";
+            strTertiary_apdc = "Santa Rita College of Pampanga";
+            strCourse_apdc = "Bachelor of Science in Information System";
+            strProgBy_apdc = "Anne Paulyn B. Dela Cruz";
+           
+            document.getElementById("fName").innerHTML = strName_apdc;
+            document.getElementById("bDate").innerHTML = strBDate_apdc;
+            document.getElementById("add").innerHTML = strAdd_apdc;
+            document.getElementById("pri").innerHTML = strPrimary_apdc;
+            document.getElementById("sec").innerHTML = strSecondary_apdc;
+            document.getElementById("ter").innerHTML = strTertiary_apdc;
+            document.getElementById("cors").innerHTML = strCourse_apdc;
+            document.getElementById("progBy").innerHTML = strProgBy_apdc;
+            </script>
+</body>
+</html>
+

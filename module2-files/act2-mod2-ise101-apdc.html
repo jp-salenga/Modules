@@ -1,0 +1,111 @@
+//ACTIVITY 2.2 JAVASCRIPT CONDITIONAL STATEMENTS
+
+<!DOCTYPE html>
+<html>
+<head>
+ <title>CONTROL STATEMENTS</title>
+
+ <script type='text/javascript' src='scripts/simple.js'></script>
+ <!-- Include meta tag to ensure proper rendering and touch zooming -->
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <!-- Include jQuery Mobile stylesheets -->
+ <link rel="stylesheet" href="../jquery/jquery.mobile-1.4.5.min.css">
+ <!-- Include the jQuery library -->
+ <script src="../jquery/jquery-1.11.3.js"></script>
+ <!-- Include the jQuery Mobile library -->
+ <script src="../jquery/jquery.mobile-1.4.5.min.js">
+ </script>
+
+</head>
+<body>
+
+    <div data-role="page">
+        <div data-role="header">
+        ACTIVITY 2 - MODULE 2
+        </div>
+        <div data-role="content">
+        <p><b>GRADE SLIP</b></p>
+        <p>Student Name: <em id="fName"></em></p>
+        <p>Student Course: <em id="cors"></em></p>
+        <p>Prelim Grade: <em id="pre"></em></p>
+        <p>Midterm Grade: <em id="mid"></em></p>
+        <p>Final Grade: <em id="fin"></em></p>
+        <p>Subject Grade: <em id="sgrade"></em></p>
+        <p>Ratings: <em id="rate"></em></p>
+        <p>Remarks: <em id="rem"></em></p>
+        <br>
+        <p>Programmed by: <em id="progBy"></em></p>
+        </div>
+       
+        <div data-role="footer">
+        <small>Copyright &copy 2021</small>
+        </div>
+        </div>
+
+        <script>
+            //Declare and initialize variables
+            strLName_apdc = "Dela Cruz"
+            strFName_apdc = "Anne Paulyn"
+            strMName_apdc = "Baua"
+            dblPre_apdc = 80
+            dblMid_apdc = 85
+            dblFin_apdc = 90
+            strProgBy_apdc = "Anne Paulyn B. Dela Cruz"
+            //Concatenate names
+            strFullName_apdc = strLName_apdc + ", " + strFName_apdc + " " + strMName_apdc
+            //Compute subject grade
+            dblSGrade_apdc = (dblPre_apdc + dblMid_apdc + dblFin_apdc)/3
+
+            //Apply If and Else Statement to determine Remarks
+            if (dblSGrade_apdc > 74)
+            strRemarks_apdc = "Passed!"
+            else
+            strRemarks_apdc = "Failed"
+
+            //Apply If and Else If Statement to determine Ratings
+             if (dblSGrade_apdc >= 98 && dblSGrade_apdc <= 100)
+            strRatings_apdc = "Excellent!";
+            else if (dblSGrade_apdc >= 92 && dblSGrade_apdc <= 98)
+            strRatings_apdc = "Very Good!";
+            else if (dblSGrade_apdc >= 83 && dblSGrade_apdc <= 92)
+            strRatings_apdc = "Good!";
+            else if (dblSGrade_apdc >= 78 && dblSGrade_apdc <= 83)
+            strRatings_apdc = "Fair!";
+            else if (dblSGrade_apdc >= 75 && dblSGrade_apdc <= 78)
+            strRatings_apdc = "Satisfactory!";
+            else
+            strRatings_apdc = "Poor!"
+
+            //Apply Switch-Case to display course code
+            strCorCode_apdc ="BSIS"
+            switch(strCorCode_apdc){
+            case "BSCS":
+            strCorDept_apdc = "Bachelor of Science in Computer Science";
+            break;
+            case "BSIT":
+            strCorDept_apdc = "Bachelor of Science in Information Technology";
+            break;
+            case "BSIS":
+            strCorDept_apdc = "Bachelor of Science in Information Systems";
+            break;
+            default:
+            strCorDept_apdc = "No course available";
+            }
+
+            //Display variable values using element id
+            document.getElementById("fName").innerHTML = strFullName_apdc;
+            document.getElementById("pre").innerHTML = dblPre_apdc;
+            document.getElementById("mid").innerHTML = dblMid_apdc;
+            document.getElementById("fin").innerHTML = dblFin_apdc;
+            document.getElementById("sgrade").innerHTML = dblSGrade_apdc;
+            document.getElementById("rate").innerHTML = strRatings_apdc;
+            document.getElementById("rem").innerHTML = strRemarks_apdc;
+            document.getElementById("cors").innerHTML = strCorDept_apdc;
+            document.getElementById("progBy").innerHTML = strProgBy_apdc;
+
+            </script>
+
+</body>
+</html>
+
+

@@ -1,0 +1,99 @@
+//ACTIVITY 2.3  LOOPS AND SINGLE DIMENSIONAL ARRAY
+
+<!DOCTYPE html>
+<html>
+<head>
+ <title>LOOPS AND SINGLE DIMENSIONAL ARRAY</title>
+
+ <script type='text/javascript' src='scripts/simple.js'></script>
+ <!-- Include meta tag to ensure proper rendering and touch zooming -->
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <!-- Include jQuery Mobile stylesheets -->
+ <link rel="stylesheet" href="../jquery/jquery.mobile-1.4.5.min.css">
+ <!-- Include the jQuery library -->
+ <script src="../jquery/jquery-1.11.3.js"></script>
+ <!-- Include the jQuery Mobile library -->
+ <script src="../jquery/jquery.mobile-1.4.5.min.js">
+ </script>
+
+</head>
+<body>
+
+    <div data-role="page">
+        <div data-role="header" align="center">
+            ACTIVITY 3 - MODULE 2
+            </div>
+            <div data-role="content">
+            <p><b>LIST OF YEAR LEVELS</b></p>
+            <p id="level"></p>
+
+            
+            <br>
+            <p><b>LIST OF COURSES OFFERED</b></p>
+            <p id="course"></p>
+
+            <br>
+            <p><b>GRADE SLIP</b></p>
+            <p id="grade"></p>
+
+            <p>Programmed by: <em id="progBy"></em></p>
+            </div>
+       
+        <div data-role="footer" align="center">
+        <small>Copyright &copy 2021</small>
+
+        </div>
+        </div>
+
+    <script>
+        //Declare and initialize single dimensional array
+        const arrLName_apdc = ["Di Magkamali","Di Mahagilap","Di Matulac","Di Mahanap","DiMapakali"];
+        const arrFName_apdc = ["Perfecto","Hassan","Dabiana","Ditolado","Albereto"];
+        const arrPre_apdc = ["90","91","92","93","94"];
+        const arrMid_apdc = ["80","81","82","83","84"];
+        const arrFin_apdc = ["75","80","85","90","95"];
+        var strProgBy_apdc = "Anne Paulyn B. Dela Cruz";
+        //Declare and initialize object arrays
+        const arrLevel_apdc = {First:"First Year",Second:"Second Year",Third:"Third Year",Fourth:"Fourth Year"};
+        const arrCourse_apdc = {BSCS:"BS in Computer Science",BSIT:"BS in Information Technology",BSIS:"BS in Information Systems"};
+       
+        //Store List of Year Level
+        let lenLvl_apdc = arrLevel_apdc.length;
+        //Displaying array objects using for each
+        let strLevel_apdc = "<ul>";
+            for (let lenLvl_apdc in arrLevel_apdc) {
+        strLevel_apdc += "<li>" + arrLevel_apdc[lenLvl_apdc] + "</li>"
+        }
+        strLevel_apdc += "</ul>"
+        document.getElementById("level").innerHTML = strLevel_apdc;
+
+        //Store List of Courses
+        let lenCors_apdc = arrCourse_apdc.length;
+        //Displaying array objects using for each
+        let strCourse_apdc = "<ul>";
+            for (let lenCors_apdc in arrCourse_apdc) {
+        strCourse_apdc += "<li>" + arrCourse_apdc[lenCors_apdc] + "</li>"
+        }
+        strCourse_apdc += "</ul>"
+        document.getElementById("course").innerHTML = strCourse_apdc;
+
+
+        //Store Grade Slip uing For loop
+        strGrade_apdc=""
+            for(let ctr = 0; ctr < arrLName_apdc.length ; ctr++){
+        strGrade_apdc += "Student Name: " + arrLName_apdc[ctr] + ", " + arrFName_apdc[ctr] + "<br>";
+        strGrade_apdc += "Student Level: " + arrLevel_apdc.First + "<br>";
+        strGrade_apdc += "Student Course: " + arrCourse_apdc.BSIT + "<br>";
+        strGrade_apdc += "Prelim Grade: " + arrPre_apdc[ctr] + "<br>";
+        strGrade_apdc += "Midterm Grade: " + arrMid_apdc[ctr] + "<br>";
+        strGrade_apdc += "Final Grade: " + arrFin_apdc[ctr] + "<br>";
+        strGrade_apdc += "Subject Grade: " + (parseFloat(arrPre_apdc[ctr]) + parseFloat(arrMid_apdc[ctr]) +
+        parseFloat(arrFin_apdc[ctr]))/3 + "<br><br>";
+        }
+        document.getElementById("grade").innerHTML = strGrade_apdc;
+        document.getElementById("progBy").innerHTML = strProgBy_apdc;
+       </script>
+
+</body>
+</html>
+

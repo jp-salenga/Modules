@@ -1,0 +1,152 @@
+//MACHINE PROBLEM 2.1  HOSPITAL: CONTROL STATEMENTS
+
+<!DOCTYPE html>
+<html>
+<head>
+ <title>LOOPS AND MULTI-DIMENSIONAL ARRAY</title>
+
+ <script type='text/javascript' src='scripts/simple.js'></script>
+ <!-- Include meta tag to ensure proper rendering and touch zooming -->
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <!-- Include jQuery Mobile stylesheets -->
+ <link rel="stylesheet" href="../jquery/jquery.mobile-1.4.5.min.css">
+ <!-- Include the jQuery library -->
+ <script src="../jquery/jquery-1.11.3.js"></script>
+ <!-- Include the jQuery Mobile library -->
+ <script src="../jquery/jquery.mobile-1.4.5.min.js">
+ </script>
+
+</head>
+<body>
+
+    <div data-role="page">
+        <div data-role="header" align="center">
+        MACHINE PROBLEM 1 - MODULE 2
+        </div>
+        <div data-role="content">
+        <p><b>HOSPITAL RECORDS</b></p>
+        <p id="rec"></p>
+        <p>Programmed by: <em id="progBy"></em></p>
+        </div>
+        <div data-role="footer" align="center">
+        <small>Copyright &copy 2021</small>
+        </div>
+        </div>
+
+        <script>
+            const arrPatientInfo_apdc=[
+            {PNum: "1", LName:"Di Magkamali", FName:"Perfecto",Age:2,roomType:"W" ,rPD:700,nOD:5,labCh:1200,exCh:500, healthIn: 0.05, phealth: 0.06, socialSS:0.07},
+            {PNum: "2", LName:"Di Matulac", FName:"Hebili",Age:10,roomType:"SPR" ,rPD:900,nOD:7,labCh:1500,exCh:550,healthIn: 0.05, phealth: 0.06, socialSS:0.07},
+            {PNum: "3", LName:"Di Magiba", FName:"Matthias",Age:25,roomType:"PR" ,rPD:1200,nOD:9,labCh:1700,exCh:600, healthIn: 0.05, phealth: 0.06, socialSS:0.07},
+            {PNum: "4", LName:"Dela Cruz", FName:"Juan",Age:37,roomType:"ER" ,rPD:1000,nOD:11,labCh:2700,exCh:650, healthIn: 0.05, phealth: 0.06, socialSS:0.07},
+            {PNum: "5", LName:"Penduko", FName:"Pedro",Age:60,roomType:"ICU" ,rPD:1500,nOD:15,labCh:300,exCh:700, healthIn: 0.05, phealth: 0.06, socialSS:0.07}
+            ];
+    
+            var strProgBy_apdc = "Anne Paulyn B. Dela Cruz";
+
+            patientInfo = "";
+            for (ctrOut = 0 ; ctrOut < arrPatientInfo_apdc.length; ctrOut++){
+
+                var roomDescription ="";
+                //switch case for room type
+                switch(arrPatientInfo_apdc[ctrOut].roomType){
+                    case "W":
+                        roomDescription = "Ward";
+                        break;
+                    case "SPR":
+                        roomDescription = "Semi Private Room";
+                        break;
+                    case "PR":
+                        roomDescription = "Private Room";
+                        break;
+                    case "ER":
+                        roomDescription = "Emergency Room";
+                        break;
+                    case "ICU":
+                        roomDescription = "Intensive Care Unit";
+                        break;
+                    case "NICU":
+                        roomDescription = "Neonatal Intensive Care Unit";
+                        break;
+                    case "PICU":
+                        roomDescription = "Pediatric Intensive Care Unit";
+                        break;
+                    case "IC":
+                        roomDescription = "Incubator Cost";
+                        break
+
+                }
+
+                /*Computations
+                A. Room Charge = Rate Per Day * No. Of Days
+                B. Total Amount = Room Charge + Laboratory Charges + Extra Charges
+                C. Health Insurance = Total Amount * 0.05
+                D. PhilHealth = Total Amount * 0.06
+                E. SSS = Total Amount * 0.07
+                F. Total Discount = Health Insurance + PhilHealth + SSS
+                G. Amount To Pay = Total Amount – Total Discount
+
+                */
+
+                var ageGroup = "";
+                var patientAge = arrPatientInfo_apdc[ctrOut].Age;
+               if( patientAge <=2 && patientAge != 0){
+                ageGroup = "Babies";
+               } else if (patientAge  >=3 && patientAge <=16){
+                ageGroup = "Children";
+               }else if (patientAge >= 17 && patientAge <=30){
+                ageGroup = "Young Adults";
+
+               }else if (patientAge >= 30 && patientAge <=45){
+                ageGroup = "Adults";
+                
+               } else{
+                ageGroup = "Old Adults";
+               }
+
+
+
+                patientInfo += "Patient Number: "+ arrPatientInfo_apdc[ctrOut].PNum + "<br>";
+                patientInfo += "Last Name: "+ arrPatientInfo_apdc[ctrOut].LName +"<br>";
+                patientInfo += "Age: "+ arrPatientInfo_apdc[ctrOut].Age+"<br>";
+                /*Age Group*/
+                patientInfo += "Age Group: "+ ageGroup+"<br>";
+             
+
+
+                patientInfo+= "Room Type: "+ roomDescription+"<br>";
+                patientInfo+= "Rate Per Day: "+ arrPatientInfo_apdc[ctrOut].rPD+"<br>";
+                patientInfo+= "No. of Days: "+ arrPatientInfo_apdc[ctrOut].nOD+"<br>";
+                patientInfo+= "Laboratory Charges: "+ arrPatientInfo_apdc[ctrOut].labCh+"<br>";
+                patientInfo+= "Extra Charges: "+ arrPatientInfo_apdc[ctrOut].exCh+"<br>";
+
+                var roomCharge = arrPatientInfo_apdc[ctrOut].rPD * arrPatientInfo_apdc[ctrOut].nOD;
+                patientInfo+= "Room Charge: "+ roomCharge.toFixed(2)+"<br>";
+                var totalAmount = roomCharge + arrPatientInfo_apdc[ctrOut].labCh + arrPatientInfo_apdc[ctrOut].exCh;
+
+                /*Computed charges*/
+                patientInfo+= "Total Amount: "+ totalAmount.toFixed(2)+"<br>";
+                var healthInsurance = totalAmount * arrPatientInfo_apdc[ctrOut].healthIn;
+                patientInfo+= "Health Insurance: "+ healthInsurance.toFixed(2)+"<br>";
+                
+                var philHealth = totalAmount * arrPatientInfo_apdc[ctrOut].phealth;
+                 patientInfo+= "PhilHealth: "+ philHealth.toFixed(2)+"<br>";
+                var socialSecurity = totalAmount * arrPatientInfo_apdc[ctrOut].socialSS;
+                patientInfo+= "SSS: "+ socialSecurity.toFixed(2)+"<br>";
+                var totalDiscount = healthInsurance + philHealth + socialSecurity;
+                patientInfo+= "Total Discount: "+ totalDiscount.toFixed(2)+"<br>";
+                var amountToPay = totalAmount - totalDiscount;
+                patientInfo+= "Amount to Pay: "+ amountToPay.toFixed(2)+"<br>";
+                
+                
+              
+                
+                patientInfo+= "<br>";
+            }
+
+            document.getElementById("rec").innerHTML = patientInfo;
+            document.getElementById("progBy").innerHTML = strProgBy_apdc;
+
+        </script>
+</body>
+</html>
